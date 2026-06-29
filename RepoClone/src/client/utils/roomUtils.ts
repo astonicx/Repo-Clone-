@@ -48,6 +48,7 @@ export function getNearestRoom(position: Vector3, rooms: Room[]): Room | null {
 
 /**
  * Clamp a position to stay within a room's bounds, or slide along edges.
+ * Allows easier movement through doorways by reducing boundary margin.
  */
 export function clampPositionToRoom(position: Vector3, room: Room): Vector3 {
     const halfW = room.width / 2;
@@ -57,10 +58,12 @@ export function clampPositionToRoom(position: Vector3, room: Room): Vector3 {
     const minZ = room.position.z - halfD;
     const maxZ = room.position.z + halfD;
 
+    // Reduced margin (0.5 instead of 1.2) to allow easier doorway passage
+    const margin = 0.5;
     return {
-        x: Math.max(minX + 1.2, Math.min(position.x, maxX - 1.2)),
+        x: Math.max(minX + margin, Math.min(position.x, maxX - margin)),
         y: position.y,
-        z: Math.max(minZ + 1.2, Math.min(position.z, maxZ - 1.2)),
+        z: Math.max(minZ + margin, Math.min(position.z, maxZ - margin)),
     };
 }
 
@@ -87,12 +90,13 @@ export function getConnectedRooms(room: Room, allRooms: Map<string, Room>): Room
 
 /**
  * Check if a position is near a doorway (threshold for room transitions).
+ * More generous threshold to allow smooth room transitions.
  */
 export function getNearbyConnectedRoom(
     position: Vector3,
     currentRoom: Room,
     allRooms: Map<string, Room>,
-    doorwayThreshold: number = 2.4
+    doorwayThreshold: number = 6.0
 ): Room | null {
     // Check each connected room.
     for (const connectedId of currentRoom.connectedRooms) {
@@ -104,7 +108,7 @@ export function getNearbyConnectedRoom(
         const dz = position.z - connectedRoom.position.z;
         const dist = Math.sqrt(dx * dx + dz * dz);
 
-        // If very close to neighboring room center, allow transition.
+        // If close enough to neighboring room center, allow transition.
         if (dist < doorwayThreshold) {
             return connectedRoom;
         }

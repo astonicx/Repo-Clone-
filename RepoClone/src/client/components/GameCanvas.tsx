@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { useGameStore } from '../systems/GameStateManager';
+import { inputSystem } from '../systems/InputSystem';
 import type { Room, Vector3 } from '../types';
 import { findRoomAtPosition } from '../utils/roomUtils';
 import { drawCharacterSprite, PLAYER_ARCHETYPES, MONSTER_VARIANTS, getMonsterVariantByTier } from '../utils/archetypes';
@@ -50,8 +51,9 @@ export const GameCanvas: React.FC<GameCanvasProps> = ({ rooms, extractionPoint }
             }
 
             const skin = ROOM_SKINS[room.theme];
-            const centerX = CANVAS_W / 2;
-            const centerY = CANVAS_H / 2 + 20;
+            const cameraOffset = inputSystem.getCameraOffset();
+            const centerX = CANVAS_W / 2 + cameraOffset.x;
+            const centerY = CANVAS_H / 2 + 20 + cameraOffset.y;
 
             // Clear background
             ctx.clearRect(0, 0, CANVAS_W, CANVAS_H);

@@ -11,11 +11,11 @@ const MAP_W = 210;
 const MAP_H = 160;
 
 const ROOM_COLORS: Record<Room['theme'], string> = {
-    sterile: '#5f6f77',
-    industrial: '#7a5f40',
-    luxury: '#7a6b3a',
-    archive: '#5e7050',
-    danger: '#7e3e3e',
+    sterile: '#4db3d3',
+    industrial: '#d6a35b',
+    luxury: '#ffd700',
+    archive: '#7ec789',
+    danger: '#ff6464',
 };
 
 export const MiniMap: React.FC<MiniMapProps> = ({ rooms, extractionPoint }) => {

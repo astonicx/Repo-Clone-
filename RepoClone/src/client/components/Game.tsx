@@ -11,6 +11,7 @@ import { HUD } from './HUD';
 import { LoadingScreen } from './LoadingScreen';
 import { MainMenu } from './MainMenu';
 import { MissionResult } from './MissionResult';
+import { HintOverlay } from './HintOverlay';
 
 const MISSION_TIME_LIMIT = 180; // 3 minutes for a playable slice
 const QUOTA_FRACTION = 0.25; // need to extract 25% of available loot value
@@ -68,6 +69,7 @@ const GameView: React.FC<GameViewProps> = ({ facility, quota }) => {
     const state = useGameStore((s) => s.state);
     const setGameState = useGameStore((s) => s.setGameState);
     const reset = useGameStore((s) => s.reset);
+    const [showHints, setShowHints] = useState(true);
 
     useGameLoop({ extractionPoint: facility.extractionPoint, quota, rooms });
 
@@ -75,6 +77,7 @@ const GameView: React.FC<GameViewProps> = ({ facility, quota }) => {
         <div className="game-view">
             <GameCanvas rooms={rooms} extractionPoint={facility.extractionPoint} />
             <HUD quota={quota} extractionPoint={facility.extractionPoint} rooms={rooms} />
+            <HintOverlay visible={showHints} onDismiss={() => setShowHints(false)} />
 
             {state === 'PAUSED' && (
                 <div className="repo-overlay">

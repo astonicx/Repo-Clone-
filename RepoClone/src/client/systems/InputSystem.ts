@@ -16,6 +16,9 @@ export class InputSystem {
   private isMouseDown: boolean = false;
   private currentVelocity: Vector3 = { x: 0, y: 0, z: 0 };
   private lastUpdateTime: number = Date.now();
+  private cameraOffset: { x: number; y: number } = { x: 0, y: 0 };
+  private lastMousePos: { x: number; y: number } = { x: 0, y: 0 };
+  private mouseSensitivity: number = 0.25;
 
   constructor() {
     this.setupEventListeners();
@@ -64,10 +67,21 @@ export class InputSystem {
   };
 
   /**
-   * Handle mouse movement
+   * Handle mouse movement - track camera look
    */
   private handleMouseMove = (e: MouseEvent): void => {
+    const dx = e.clientX - this.lastMousePos.x;
+    const dy = e.clientY - this.lastMousePos.y;
+    this.lastMousePos = { x: e.clientX, y: e.clientY };
     this.mousePos = { x: e.clientX, y: e.clientY };
+    
+    // Update camera offset for look-around effect
+    this.cameraOffset.x += dx * this.mouseSensitivity;
+    this.cameraOffset.y += dy * this.mouseSensitivity;
+    
+    // Clamp camera offset to reasonable bounds
+    this.cameraOffset.x = Math.max(-40, Math.min(40, this.cameraOffset.x));
+    this.cameraOffset.y = Math.max(-30, Math.min(30, this.cameraOffset.y));
   };
 
   /**
@@ -358,6 +372,13 @@ export class InputSystem {
    */
   getMousePosition(): { x: number; y: number } {
     return this.mousePos;
+  }
+
+  /**
+   * Get camera offset for look-around
+   */
+  getCameraOffset(): { x: number; y: number } {
+    return { ...this.cameraOffset };
   }
 
   /**
