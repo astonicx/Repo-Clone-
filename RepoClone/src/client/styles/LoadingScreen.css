@@ -1,0 +1,277 @@
+/* R.E.P.O. Loading Screen — dark industrial horror aesthetic */
+
+.loading-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 40%, #141414 0%, #0a0a0a 70%, #050505 100%);
+    color: #d4af37;
+    font-family: "Courier New", Courier, monospace;
+    overflow: hidden;
+    user-select: none;
+    animation: ls-flicker 6s infinite;
+}
+
+@keyframes ls-flicker {
+
+    0%,
+    96%,
+    100% {
+        opacity: 1;
+    }
+
+    97% {
+        opacity: 0.82;
+    }
+
+    98% {
+        opacity: 1;
+    }
+
+    99% {
+        opacity: 0.9;
+    }
+}
+
+/* Scanlines overlay */
+.scanlines {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(to bottom,
+            rgba(0, 0, 0, 0) 0px,
+            rgba(0, 0, 0, 0) 2px,
+            rgba(0, 0, 0, 0.25) 3px,
+            rgba(0, 0, 0, 0.25) 4px);
+    mix-blend-mode: multiply;
+    z-index: 2;
+}
+
+.loading-content {
+    position: relative;
+    z-index: 3;
+    width: min(620px, 90vw);
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Title with glitch */
+.loading-title {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    font-weight: 900;
+    letter-spacing: 0.4rem;
+    color: #d4af37;
+    text-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+    position: relative;
+    animation: ls-glow 2.4s ease-in-out infinite;
+}
+
+@keyframes ls-glow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    }
+
+    50% {
+        text-shadow: 0 0 24px rgba(212, 175, 55, 0.85);
+    }
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.glitch::before {
+    color: #4a7c7e;
+    animation: ls-glitch-1 2.6s infinite linear alternate-reverse;
+    clip-path: inset(0 0 55% 0);
+}
+
+.glitch::after {
+    color: #8b0000;
+    animation: ls-glitch-2 2s infinite linear alternate-reverse;
+    clip-path: inset(55% 0 0 0);
+}
+
+@keyframes ls-glitch-1 {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 1px);
+    }
+
+    40% {
+        transform: translate(-1px, -1px);
+    }
+
+    60%,
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes ls-glitch-2 {
+    0% {
+        transform: translate(0);
+    }
+
+    25% {
+        transform: translate(2px, -1px);
+    }
+
+    50% {
+        transform: translate(1px, 1px);
+    }
+
+    75%,
+    100% {
+        transform: translate(0);
+    }
+}
+
+.loading-subtitle {
+    margin-top: 0.6rem;
+    font-size: clamp(0.7rem, 2vw, 0.95rem);
+    letter-spacing: 0.2rem;
+    color: #7a8a6a;
+    text-transform: uppercase;
+}
+
+/* Particles */
+.particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: 2px;
+    background: rgba(212, 175, 55, 0.5);
+    border-radius: 50%;
+    animation-name: ls-fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes ls-fall {
+    0% {
+        transform: translateY(-10px) translateX(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.8;
+    }
+
+    90% {
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateY(100vh) translateX(20px);
+        opacity: 0;
+    }
+}
+
+/* Loading bar */
+.loading-bar-container {
+    margin-top: 2.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.loading-bar {
+    width: 100%;
+    height: 14px;
+    background: #1a1a1a;
+    border: 1px solid #3a3a2a;
+    box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.8);
+    overflow: hidden;
+    position: relative;
+}
+
+.loading-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4a7c7e, #d4af37);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+    transition: width 0.12s linear;
+}
+
+.loading-percentage {
+    font-size: 0.9rem;
+    letter-spacing: 0.15rem;
+    color: #d4af37;
+}
+
+/* Tasks */
+.loading-tasks {
+    margin-top: 1.8rem;
+    text-align: left;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: #9aa888;
+}
+
+.loading-tasks-header {
+    color: #d4af37;
+    letter-spacing: 0.15rem;
+    margin-bottom: 0.4rem;
+}
+
+.loading-task {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-progress.done {
+    color: #5ad65a;
+}
+
+/* Tip */
+.loading-tip {
+    margin-top: 1.8rem;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #6a7a5a;
+    min-height: 1.2rem;
+}
+
+/* Skip hint */
+.loading-skip {
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1rem;
+    color: #8b0000;
+    animation: ls-blink 1.4s step-start infinite;
+}
+
+@keyframes ls-blink {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.loading-version {
+    margin-top: 1.6rem;
+    font-size: 0.7rem;
+    color: #4a4a3a;
+    letter-spacing: 0.1rem;
+}

@@ -1,0 +1,421 @@
+/* R.E.P.O. in-game + menu styling (shares the loading-screen aesthetic) */
+
+.repo-menu {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at 50% 40%, #141414 0%, #0a0a0a 70%, #050505 100%);
+    color: #d4af37;
+    font-family: "Courier New", Courier, monospace;
+    overflow: auto;
+}
+
+.repo-menu-content {
+    position: relative;
+    z-index: 3;
+    width: min(680px, 92vw);
+    text-align: center;
+    padding: 2rem;
+}
+
+.repo-menu-card {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(20, 20, 16, 0.85);
+    border: 1px solid #3a3a2a;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.repo-menu-card h2 {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    color: #9aa888;
+}
+
+.repo-facility-list {
+    display: grid;
+    gap: 0.6rem;
+}
+
+.repo-facility {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+    padding: 0.7rem 1rem;
+    background: #15150f;
+    border: 1px solid #2a2a1a;
+    color: #9aa888;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s ease;
+    font-family: inherit;
+}
+
+.repo-facility:hover {
+    border-color: #4a7c7e;
+    color: #cfe0bd;
+}
+
+.repo-facility.active {
+    border-color: #d4af37;
+    background: #211d10;
+    color: #d4af37;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+}
+
+.repo-facility-type {
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+}
+
+.repo-facility-desc {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.repo-start {
+    margin-top: 1.4rem;
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    letter-spacing: 0.25rem;
+    color: #0a0a0a;
+    background: linear-gradient(90deg, #4a7c7e, #d4af37);
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: filter 0.15s ease;
+}
+
+.repo-start:hover {
+    filter: brightness(1.15);
+}
+
+.repo-secondary {
+    margin-top: 0.8rem;
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.2rem;
+    color: #9aa888;
+    background: transparent;
+    border: 1px solid #3a3a2a;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.repo-secondary:hover {
+    color: #d4af37;
+    border-color: #d4af37;
+}
+
+.repo-controls {
+    margin-top: 1.2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    justify-content: center;
+    font-size: 0.72rem;
+    color: #6a7a5a;
+}
+
+/* Result screen rows */
+.repo-result-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed #2a2a1a;
+    color: #9aa888;
+    font-size: 0.9rem;
+}
+
+.repo-result-value {
+    color: #d4af37;
+    font-weight: 700;
+}
+
+.repo-result-items {
+    margin-top: 1rem;
+    max-height: 180px;
+    overflow-y: auto;
+    text-align: left;
+    font-size: 0.78rem;
+    color: #7a8a6a;
+}
+
+.repo-result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.15rem 0;
+}
+
+.repo-result-actions {
+    margin-top: 1.2rem;
+}
+
+/* ===================== In-game ===================== */
+
+.game-view {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #050505;
+    overflow: hidden;
+}
+
+.game-canvas {
+    width: min(100vw, 177.7vh);
+    height: auto;
+    max-height: 100vh;
+    image-rendering: pixelated;
+    background: #0a0a0a;
+}
+
+/* HUD overlay */
+.hud {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    font-family: "Courier New", Courier, monospace;
+    color: #d4af37;
+    z-index: 10;
+}
+
+.hud-panel {
+    position: absolute;
+    background: rgba(10, 10, 8, 0.7);
+    border: 1px solid #2a2a1a;
+    padding: 0.6rem 0.8rem;
+}
+
+.hud-vitals {
+    top: 16px;
+    left: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    min-width: 220px;
+}
+
+.hud-minimap-panel {
+    top: 170px;
+    left: 16px;
+    padding: 0.45rem;
+}
+
+.hud-minimap-title {
+    margin: 0 0 0.35rem 0.2rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.12rem;
+    color: #8fa79b;
+}
+
+.mini-map {
+    border: 1px solid #2f3a30;
+    background: #0a0d0d;
+    overflow: hidden;
+}
+
+.hud-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hud-label {
+    width: 48px;
+    font-size: 0.72rem;
+    letter-spacing: 0.1rem;
+    color: #9aa888;
+}
+
+.hud-bar {
+    flex: 1;
+    height: 10px;
+    background: #1a1a14;
+    border: 1px solid #2a2a1a;
+    overflow: hidden;
+}
+
+.hud-bar.wide {
+    width: 180px;
+}
+
+.hud-bar-fill {
+    height: 100%;
+    transition: width 0.15s ease;
+}
+
+.hud-bar-fill.health {
+    background: #c0392b;
+}
+
+.hud-bar-fill.stamina {
+    background: #d4af37;
+}
+
+.hud-bar-fill.quota {
+    background: #5ad65a;
+}
+
+.hud-value {
+    width: 40px;
+    text-align: right;
+    font-size: 0.72rem;
+    color: #cfe0bd;
+}
+
+.hud-objective {
+    top: 16px;
+    right: 16px;
+    text-align: right;
+}
+
+.hud-timer {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 0.1rem;
+    color: #d4af37;
+}
+
+.hud-quota-label {
+    margin: 0.3rem 0;
+    font-size: 0.75rem;
+    color: #9aa888;
+}
+
+.hud-held {
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-align: center;
+    min-width: 280px;
+}
+
+.hud-held-name {
+    font-weight: 700;
+    color: #d4af37;
+}
+
+.hud-held-meta {
+    font-size: 0.72rem;
+    color: #9aa888;
+}
+
+.hud-prompt {
+    font-size: 0.78rem;
+    color: #5ad65a;
+    letter-spacing: 0.05rem;
+}
+
+.hud-prompt.dim {
+    color: #6a7a5a;
+}
+
+.hud-notifications {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.hud-notif {
+    padding: 0.4rem 0.9rem;
+    font-size: 0.78rem;
+    border: 1px solid;
+    background: rgba(10, 10, 8, 0.85);
+    animation: hud-fade 0.2s ease;
+}
+
+.hud-notif.info {
+    color: #9aa888;
+    border-color: #3a3a2a;
+}
+
+.hud-notif.success {
+    color: #5ad65a;
+    border-color: #2f6b2f;
+}
+
+.hud-notif.warning {
+    color: #d4af37;
+    border-color: #6b5a1f;
+}
+
+.hud-notif.danger {
+    color: #ff6b6b;
+    border-color: #8b0000;
+}
+
+@media (max-width: 920px) {
+    .hud-vitals {
+        top: 10px;
+        left: 10px;
+        min-width: 180px;
+    }
+
+    .hud-minimap-panel {
+        top: 148px;
+        left: 10px;
+        transform: scale(0.86);
+        transform-origin: top left;
+    }
+
+    .hud-objective {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@keyframes hud-fade {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pause overlay */
+.repo-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(5, 5, 5, 0.8);
+}
+
+.repo-overlay-card {
+    width: min(360px, 90vw);
+    padding: 2rem;
+    text-align: center;
+    background: rgba(20, 20, 16, 0.95);
+    border: 1px solid #3a3a2a;
+    font-family: "Courier New", Courier, monospace;
+    color: #d4af37;
+}
+
+.repo-overlay-card h2 {
+    margin: 0 0 1.2rem;
+    letter-spacing: 0.3rem;
+}
