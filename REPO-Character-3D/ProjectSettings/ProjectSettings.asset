@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG ! tag:yaml.org,2002:
+--- !u!129 &1
+PlayerSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 24
+  productName: REPO Character
+  productVersion: 0.1.0
+  companyName: Heist Studios
+  cloudEnabled: 0
+  defaultCursor: {fileID: 0}
+  cursorHotspot: {x: 0, y: 0}
+  m_ShowUnitySplashScreen: 0
+  m_SplashScreenLogos: []
+  m_VirtualRealitySupported: 0
+  m_EnableVR: 0
+  m_RenderingPath: -1
+  m_MobileRenderingPath: -1
+  m_ActiveColorSpace: 0
+  m_MTRendering: 1
+  mipStripping: 0
+  numberOfMips: 0
+  m_StackTraceTypes: 010000000100000001000000010000000100000001000000
+  iosShowActivityIndicatorOnLoading: -1
+  androidShowActivityIndicatorOnLoading: -1
+  iosUseCustomAppBackgroundBehavior: 0
+  iosAllowHTTPDownload: 1
+  allowedAutorotateToPortrait: 1
+  allowedAutorotateToPortraitUpsideDown: 1
+  allowedAutorotateToLandscapeRight: 1
+  allowedAutorotateToLandscapeLeft: 1
+  useOSAutorotation: 1
+  capture32Bits: 0
+  bufferSize: 0
+  useMacAppStoreValidation: 0
+  bundleVersion: 0.1.0
+  preloadedAssets: []
+  metroEnableIndependentInputSource: 0
+  metroEnableLowLatencyPresentationQueue: 0
+  m_MTouchEmulationEnabled: 0
+  m_MTouchEmulationMouseSupport: 0
+  m_ExecutableIsBundle: 0
+  m_MobileRenderingPath: -1
+  m_MobileGfxTier: 0
+  m_StripEngineCode: 1
+  m_SubmitAnalytics: 1
+  unknownTagsCompatibility: 0
+  stripUnusedMeshComponents: 0
+  protectGraphicsMemory: 0
+  enableFrameTimingStats: 0
+  enableOpenGLProfilerGPURecorders: 1
+  m_SupportedAspectRatios:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  iPhoneBundleIdentifier: 
+  tvOSBundleIdentifier: 
+  usePlayerLog: 1
+  enhancedBurstSafety: 0
+  logObjCUncaughtExceptions: 1
+  enableCrashReport: 1
+  managerTestTickRate: 10
+  phoneNumber: 
+  resetResolutionOnWindowResize: 0
+  runInBackground: 1
+  allowFullscreenSwitch: 1
+  fullscreenMode: 1
+  defaultScreenWidth: 1920
+  defaultScreenHeight: 1080
+  defaultScreenWidthWeb: 960
+  defaultScreenHeightWeb: 600
+  seizedProductLicenses: []
+  addPlatformDependentCompilationDefines: 1
+  exposedScriptProperties: []
+  scriptingDefineSymbols: {}
+  m_ApiCompatibilityLevel: 6
+  m_RenderingPath: -1
+  m_ActiveColorSpace: 0
+  m_SpriteBatchVertexThreshold: 300
+  m_GameViewBackgroundColor: {r: 0.13725489, g: 0.13725489, b: 0.13725489, a: 0}
