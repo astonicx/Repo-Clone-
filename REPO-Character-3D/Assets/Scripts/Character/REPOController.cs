@@ -38,8 +38,8 @@ public class REPOController : MonoBehaviour
         cameraController = GetComponentInChildren<REPOCameraController>() ?? FindObjectOfType<REPOCameraController>();
 
         // Initialize systems
-        health.Initialize(maxHealth: 100);
-        battery.Initialize(maxEnergy: 100);
+        health.Initialize(100);
+        battery.Initialize(100);
 
         isInitialized = true;
         Debug.Log("REPO Systems initialized successfully!");
