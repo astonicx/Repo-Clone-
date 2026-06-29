@@ -5,7 +5,7 @@
 ## What's Included
 
 ### ✅ Complete Project Structure
-- Full Unity 2023.2 LTS project layout
+- Full Unity 6.5 project layout
 - All project settings configured
 - Ready to open in Unity directly
 
@@ -41,14 +41,14 @@
 cp -r /workspaces/Repo-Clone-/REPO-Character-3D ~/Unity/Projects/
 
 # Open in Unity Hub or Unity Editor
-/Applications/Unity/Hub/Editors/2023.2.20f1/Unity.app/Contents/MacOS/Unity \
+/Applications/Unity/Hub/Editors/6000.5.0f1/Unity.app/Contents/MacOS/Unity \
   -projectPath ~/Unity/Projects/REPO-Character-3D
 ```
 
 #### Or Use Unity Hub:
 1. Open **Unity Hub**
 2. Click **Add** → Select `/workspaces/Repo-Clone-/REPO-Character-3D`
-3. Open with **Unity 2023.2 LTS** (or newer)
+3. Open with **Unity 6.5** (or newer)
 
 ### 2. Import Reference Images to Character Design
 
@@ -192,7 +192,7 @@ Test in game
 
 **Ready to test?** 
 
-1. Open `/workspaces/Repo-Clone-/REPO-Character-3D` in Unity 2023.2 LTS
+1. Open `/workspaces/Repo-Clone-/REPO-Character-3D` in Unity 6.5
 2. Open `Assets/Scenes/TestScene.unity`
 3. Read [UNITY_SETUP_GUIDE.md](UNITY_SETUP_GUIDE.md) for scene setup
 4. Add REPO character to scene

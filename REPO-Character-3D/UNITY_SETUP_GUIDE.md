@@ -5,7 +5,7 @@
 ### Option 1: Open with Unity Hub (Recommended)
 1. **Open Unity Hub**
 2. Click **"Add"** → Select `/workspaces/Repo-Clone-/REPO-Character-3D` folder
-3. **Open with Unity 2023.2 LTS** (or newer)
+3. **Open with Unity 6.5** (or newer)
 4. Wait for project import (first time may take 2-3 minutes)
 5. Open scene: `Assets/Scenes/TestScene.unity`
 6. Click **Play** ▶️
@@ -13,7 +13,7 @@
 
 This project now **auto-builds the entire game when you press Play**.
 
-1. Open the project in Unity 2023.2 LTS
+1. Open the project in Unity 6.5
 2. Open **any** scene (or just the empty `Assets/Scenes/TestScene.unity`)
 3. Press **Play** ▶️
 
@@ -37,7 +37,7 @@ You can immediately:
 ### Option 2: Open from File System
 1. Copy `/workspaces/Repo-Clone-/REPO-Character-3D` to your local machine
 2. Open Unity → **Open Project** → Navigate to folder
-3. Select the folder and open with Unity 2023.2 LTS or newer
+3. Select the folder and open with Unity 6.5 or newer
 ---
 
 ## Project Structure
@@ -224,7 +224,7 @@ Since you're in remote VS Code, you have two options:
 ### Option 2: Use VS Code Terminal + Unity CLI
 1. Generate builds from terminal:
    ```bash
-   /Applications/Unity/Hub/Editors/2023.2.20f1/Unity.app/Contents/MacOS/Unity \
+   /Applications/Unity/Hub/Editors/6000.5.0f1/Unity.app/Contents/MacOS/Unity \
      -projectPath "/path/to/REPO-Character-3D" \
      -executeMethod UnityEditor.SceneHierarchyHooks.UpdateHierarchyItem \
      -quit -batchmode
